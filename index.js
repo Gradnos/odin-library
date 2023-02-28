@@ -13,9 +13,8 @@ function Book(title, author, pages, wasRead) {
 
 console.table(myLibrary);
 
-
-
 function addBookToLibrary(book) {
   // do stuff here
   myLibrary.push(book);
 }
+

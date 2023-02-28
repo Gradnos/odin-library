@@ -4,6 +4,7 @@
     --light: #A8DADC;
     --mid: #457B9D;
     --dark: #1D3557;
+    --green: #38e038;
 }
 
 *{
@@ -42,6 +43,14 @@ header h1{
 }
 
 .content{
+    padding: 2vmin;
+    gap: 2vmin;
+    display: grid;
+    justify-content: stretch;
+    align-items: str;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-rows: 400px;
+    grid-auto-rows: 400px;
     background-color: var(--mid);
     flex: 1;
 }
@@ -90,10 +99,80 @@ a:hover{
     scale: 1.2;
 }
 
+.add-book:active{
+    scale: 1;
+}
+
+button:hover{
+    scale: 1.05;
+}
+
+button:active{
+    scale: 1;
+}
+
 .add-book svg{
     fill:var(--white)
 }
 
 .add-book svg:hover{
     fill:var(--main)
+}
+
+.book *{
+    color: var(--dark);
+}
+
+.book h2{
+    font-weight: 1000;
+    font-size: 1.5rem;
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 40px;
+}
+
+
+hr{
+    border: none;
+    margin: 20px 10px;
+    width: 100%;
+    height: 5px;
+    background-color: var(--dark);
+    
+}
+
+.buttons{
+    margin-top: auto;
+}
+
+.buttons button{
+
+	padding: 20px;
+    margin: 0px 5px;
+	font: inherit;
+    border-radius: 20px;
+    font-weight: 1000;
+	cursor: pointer;
+	outline: inherit;
+    transform: scale();
+    transition: scale;
+    transition-duration: 0.2s;
+    align-self: flex-end;
+}
+
+.buttons .finished{
+    background-color: var(--green);
+    border: 5px solid var(--green);
+    color: var(--dark);
+}
+ 
+.buttons .remove{
+    border: 5px solid var(--main);
+    background-color: transparent;
 }
