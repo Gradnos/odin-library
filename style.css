@@ -1,0 +1,99 @@
+:root{
+    --main : #E63946;
+    --white : #F1FAEE;
+    --light: #A8DADC;
+    --mid: #457B9D;
+    --dark: #1D3557;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+}
+
+
+body,html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    background-color: var(--dark);
+    padding: 1vh 2vw 2vh 2vh;
+}
+
+.logo{
+    height: 3rem;
+    width: auto;
+    fill: var(--main);
+}
+
+header h1{
+    position: relative;
+    bottom: -0.8rem;
+}
+
+.content{
+    background-color: var(--mid);
+    flex: 1;
+}
+
+footer{
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh;
+    background-color: var(--dark);
+}
+
+.add-book{
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+	padding: 0;
+	font: inherit;
+    font-weight: 1000;
+	cursor: pointer;
+	outline: inherit;
+    margin-left: auto;
+    margin-top: 1rem;
+    height: 4rem;
+    width: 4rem;
+    transform: scale();
+    transition: scale;
+    transition-duration: 0.2s;
+    align-self: flex-end;
+}
+
+a{
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--white);
+    transition-duration: 0.1s;
+}
+a:hover{
+    font-weight: 1000;
+    color: var(--main);
+}
+
+
+.add-book:hover{
+    scale: 1.2;
+}
+
+.add-book svg{
+    fill:var(--white)
+}
+
+.add-book svg:hover{
+    fill:var(--main)
+}
