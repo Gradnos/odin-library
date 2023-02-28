@@ -137,6 +137,9 @@ button:active{
     border-radius: 40px;
 }
 
+.author{
+    font-weight: 700;
+}
 
 hr{
     border: none;
@@ -175,4 +178,9 @@ hr{
 .buttons .remove{
     border: 5px solid var(--main);
     background-color: transparent;
+}
+.bookTemplate{
+    position: absolute;
+    scale: 0;
+    user-select: none;
 }
