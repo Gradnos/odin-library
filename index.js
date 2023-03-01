@@ -2,8 +2,10 @@ let myLibrary = [
   new Book("Ronn the John", "Shota", 30, true),
   new Book("Mr.Beast Chronicles", "Jimmy Carter", 3, false)
 ];
-let bookTemplate = document.querySelector(".bookTemplate")
+const bookTemplate = document.querySelector(".bookTemplate")
 const container = document.querySelector(".content");
+const popup = document.querySelector(".popup");
+const overlay = document.getElementById("overlay");
 
 
 function Book(title, author, pages, wasRead) {
@@ -48,3 +50,19 @@ function displayBook(book){
   container.appendChild(newBook);
 }
 
+
+function showPopup(){
+  popup.classList.add("visible");
+  overlay.classList.add("visible");
+  console.log("aaaa");
+}
+
+
+function submit(){
+  closePopup()
+}
+
+function closePopup(){
+  popup.classList.remove("visible");
+  overlay.classList.remove("visible");
+}

@@ -184,3 +184,49 @@ hr{
     scale: 0;
     user-select: none;
 }
+
+.popup{
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    scale: 0;
+    top: 50%;
+    left: 50%;
+    background-color: var(--white);
+    align-items: center;
+    padding: 60px 20px;
+    z-index: 3;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.popup *{
+    color: var(--dark);
+}
+
+.popup.visible{
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    scale: 1;
+    display: flex;
+}
+
+
+#overlay {
+    position: fixed;
+    display: none; 
+    width: 100%; 
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#overlay.visible{
+    display: block;
+}
