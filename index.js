@@ -1,11 +1,11 @@
 let myLibrary = [
-  new Book("Ronn the John", "Shota", 30, true),
-  new Book("Mr.Beast Chronicles", "Jimmy Carter", 3, false),
-  new Book("Mr.asdadsadsa Chronicles", "Jimmy Carter", 3, false)
+  new Book("Tiger Skin Man", "Shota Rustaveli", 421, true),
+  new Book("Mr.Beast Chronicles", "Jimmy Carter", 55, true),
+  new Book("Gnomeo and Juliet", "Shake Spear", 554, false)
 ];
 const bookTemplate = document.querySelector(".bookTemplate")
 const container = document.querySelector(".content");
-const popup = document.querySelector(".popup");
+const newBookPopup = document.querySelector(".popup");
 const overlay = document.getElementById("overlay");
 
 
@@ -61,19 +61,26 @@ function displayBook(book){
 }
 
 
-function showPopup(){
-  popup.classList.add("visible");
+function showNewBookPopup(){
+  newBookPopup.classList.add("visible");
   overlay.classList.add("visible");
   console.log("aaaa");
 }
 
 
 function submit(){
-  closePopup()
+  let newBook = getPopupInfo();
+  addBookToLibrary(newBook);
+  closePopup(newBookPopup);
 }
 
-function closePopup(){
+function closePopup(popup){
   popup.classList.remove("visible");
+  overlay.classList.remove("visible");
+}
+
+function closeNewBookPopup(){
+  newBookPopup.classList.remove("visible");
   overlay.classList.remove("visible");
 }
 
@@ -108,4 +115,14 @@ function toggleRead(button, bookObj){
   setRead(button, !bookObj.wasRead);
   let bookIndex = myLibrary.findIndex(element => element.title === bookObj.title);
   myLibrary[bookIndex].wasRead = !myLibrary[bookIndex].wasRead;
+}
+
+function getPopupInfo(){
+  let title = newBookPopup.querySelector(".ipt-title").value;
+  let author = newBookPopup.querySelector(".ipt-author").value;
+  let pages = newBookPopup.querySelector(".ipt-pages").value;
+  let read = newBookPopup.querySelector(".ipt-read").checked;
+  let book = new Book(title, author, pages, read);
+  console.log(book);
+  return book;
 }
