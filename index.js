@@ -70,11 +70,12 @@ function displayBook(book){
 function showNewBookPopup(){
   newBookPopup.classList.add("visible");
   overlay.classList.add("visible");
-  console.log("aaaa");
 }
 
 
 function submit(){
+  let validity = validatePopup();
+  if(!validity) return;
   let newBook = getPopupInfo();
   addBookToLibrary(newBook);
   closePopup(newBookPopup);
@@ -107,11 +108,9 @@ function removeCurrentBook(){
 function confirmRemovePopup(bookObj, bookElement){
   surePopup.classList.add("visible");
   overlay.classList.add("visible");
-  console.log("bb");
   currentBook.obj = bookObj;
   currentBook.element = bookElement;
-  console.log("koob");
-  console.log(currentBook);
+
 }
 
 function setRead(button, status){
@@ -136,6 +135,60 @@ function getPopupInfo(){
   let pages = newBookPopup.querySelector(".ipt-pages").value;
   let read = newBookPopup.querySelector(".ipt-read").checked;
   let book = new Book(title, author, pages, read);
-  console.log(book);
   return book;
+}
+
+function validatePopup(){
+  let title = newBookPopup.querySelector(".ipt-title");
+  let titleSmall = newBookPopup.querySelector(".ipt-title+small");
+  let author = newBookPopup.querySelector(".ipt-author");
+  let authorSmall = newBookPopup.querySelector(".ipt-author+small");
+  let pages = newBookPopup.querySelector(".ipt-pages");
+  let pagesSmall = newBookPopup.querySelector(".ipt-pages+small");
+  let id;
+
+  let validity = true;
+
+  if(title.value !== ''){
+    id = myLibrary.findIndex(element => element.title === title.value);
+  }
+  
+  if(title.value === ''){
+    showError("Title Required", titleSmall, title);
+    validity = false;
+  } else if(id !== -1){
+    showError("A Book With That Title Exists", titleSmall, title); 
+    validity = false;
+  } else {
+    disableError(titleSmall, title);
+  }
+
+  if(author.value === ''){
+    showError("Author Required", authorSmall, author);
+    validity = false;
+  } else {
+    disableError(authorSmall, author);
+  }
+
+  if(pages.value === ''){
+    showError("Pages Required", pagesSmall, pages);
+    validity = false;
+  } else {
+    disableError(pagesSmall, pages);
+  }
+
+  return validity;
+
+}
+
+
+
+function showError(message, small, element){
+  element.setCustomValidity("error");
+  small.innerText = message;
+  small.classList.add("enabled");
+}
+function disableError(small,element){
+  element.setCustomValidity("");
+  small.classList.remove("enabled");
 }

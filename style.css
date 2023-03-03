@@ -377,3 +377,38 @@ hr{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+
+
+small.error{
+    scale: 0;
+    opacity: 0;
+    position: absolute;
+    bottom: 25%;
+    right: 50%;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    padding: 5px;
+    width: calc(100% - 10px);
+    background-color: var(--main);
+    z-index: 2;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+small.error.enabled{
+    text-align: center;
+    opacity: 1;
+    scale: 1;
+    right: 0%;
+    bottom: 70%;
+    font-weight: 1000;
+    font-size: 1rem;
+    color: white;
+}
+
+.input-wrapper{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}

@@ -23,7 +23,7 @@
     <div class="content">
         <div class="book bookTemplate" data-title="John Cena Returns">
             <h2 class="title">John Cena Returns</h2>
-            <small >by</small>
+            <small class="by" >by</small>
             <h3 class="author">John</h3>
             <hr>
             <p class="pages">400 pages</p>
@@ -33,16 +33,28 @@
             </div>
         </div>
     </div>
-    <footer><p>Made By <a href="">Gradnos</a> For <a href="">The Odin Project</a>.</p></footer>
+    <footer><p>Made By <a href="https://github.com/Gradnos" target="_blank">Gradnos</a> For <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a>.</p></footer>
     <div class="popup">
         <h2>New Book</h2>
 
-            <label for=""> title</label>
-            <input class="ipt-title" type="text">
-            <label for=""> author</label>
-            <input class="ipt-author" type="text">
-            <label for=""> pages</label>
-            <input class="ipt-pages" type="number">
+            <div class="input-wrapper">
+                <label for=""> title</label>
+                <input class="ipt-title" type="text">
+                <small class="error"></small>
+            </div>
+            
+            <div class="input-wrapper">
+                <label for=""> author</label>
+                <input class="ipt-author" type="text">
+                <small class="error"></small>
+            </div>
+
+            <div class="input-wrapper">
+                <label for=""> pages</label>
+                <input class="ipt-pages" type="number">
+                <small class="error"></small>
+            </div>
+
             <label class="container">
                 Read
                 <input type="checkbox" class="ipt-read">
