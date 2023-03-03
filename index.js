@@ -7,6 +7,12 @@ const bookTemplate = document.querySelector(".bookTemplate")
 const container = document.querySelector(".content");
 const newBookPopup = document.querySelector(".popup");
 const overlay = document.getElementById("overlay");
+const surePopup = document.querySelector(".sure");
+
+let currentBook = new Object (
+  obj = null,
+  element = null
+);
 
 
 function Book(title, author, pages, wasRead) {
@@ -55,7 +61,7 @@ function displayBook(book){
   setRead(finishedBtn, book.wasRead);
 
   finishedBtn.onclick =function(){ toggleRead(finishedBtn, book); };
-  removeBtn.onclick = function(){ removeBook(book, newBook); }; 
+  removeBtn.onclick = function(){ confirmRemovePopup(book, newBook); }; 
 
   container.appendChild(newBook);
 }
@@ -84,21 +90,28 @@ function closeNewBookPopup(){
   overlay.classList.remove("visible");
 }
 
-function removeBook(bookObj, bookElement){
-  let confirm = confirmPopup("Are you sure you want to delete the book?")
-  if (!confirm) return;
-  bookElement.remove();
-  let bookIndex = myLibrary.findIndex(element => element.title === bookObj.title);
-  console.log(bookIndex);
-  myLibrary.splice(bookIndex,1);
-  console.log(myLibrary);
-
-
+function closeSurePopup(){
+  surePopup.classList.remove("visible");
+  overlay.classList.remove("visible");
 }
 
-function confirmPopup(string){
-  let answer = window.confirm(string);
-  return answer;
+function removeCurrentBook(){
+  let bookElement = currentBook.element;
+  let bookObj = currentBook.obj;
+  bookElement.remove();
+  let bookIndex = myLibrary.findIndex(element => element.title === bookObj.title);
+  myLibrary.splice(bookIndex,1);
+  closePopup(surePopup);
+}
+
+function confirmRemovePopup(bookObj, bookElement){
+  surePopup.classList.add("visible");
+  overlay.classList.add("visible");
+  console.log("bb");
+  currentBook.obj = bookObj;
+  currentBook.element = bookElement;
+  console.log("koob");
+  console.log(currentBook);
 }
 
 function setRead(button, status){

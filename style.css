@@ -120,6 +120,10 @@ a:hover{
     scale: 1;
 }
 
+button{
+    min-width: 100px;
+}
+
 button:hover{
     scale: 1.05;
 }
@@ -170,6 +174,7 @@ hr{
 
 .buttons{
     margin-top: auto;
+
 }
 
 .buttons button{
@@ -259,7 +264,31 @@ hr{
     transition: all 0.3s;
 }
 
-.popup *{
+.sure{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    position: absolute;
+    width: 300px;
+    gap : 50px;
+    scale: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--white);
+    align-items: center;
+    padding: 50px 50px;
+    z-index: 3;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.sure.visible{
+    scale: 1;
+}
+
+.popup *,
+.sure *{
     color: var(--dark);
 }
 
