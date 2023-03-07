@@ -1,8 +1,3 @@
-let myLibrary = [
-  new Book("Tiger Skin Man", "Shota Rustaveli", 421, true),
-  new Book("Mr.Beast Chronicles", "Jimmy Carter", 55, true),
-  new Book("Gnomeo and Juliet", "Shake Spear", 554, false)
-];
 const bookTemplate = document.querySelector(".bookTemplate")
 const container = document.querySelector(".content");
 const newBookPopup = document.querySelector(".popup");
@@ -12,16 +7,24 @@ const surePopup = document.querySelector(".sure");
 let currentBook = new Object (
   obj = null,
   element = null
-);
+  );
 
-
-function Book(title, author, pages, wasRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.wasRead = wasRead;
-}
-
+  
+  class Book {
+    
+    constructor(title, author, pages, wasRead){
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.wasRead = wasRead;
+    }
+  }
+  
+  let myLibrary = [
+    new Book("Tiger Skin Man", "Shota Rustaveli", 421, true),
+    new Book("Mr.Beast Chronicles", "Jimmy Carter", 55, true),
+    new Book("Gnomeo and Juliet", "Shake Spear", 554, false)
+  ];
 
 
 function addBookToLibrary(book) {
